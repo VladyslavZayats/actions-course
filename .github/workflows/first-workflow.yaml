@@ -33,4 +33,4 @@ jobs:
       - name: echo windows string
         run: Write-Output "Windows String"
       - name: error command
-        run: doesrr
+        run: dir
