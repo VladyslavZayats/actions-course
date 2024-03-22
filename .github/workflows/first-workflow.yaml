@@ -1,13 +1,36 @@
+# Name of workflow
 name: First Workflow
+
+# On what action the workflow starts
 on: [push]
 
+# Jobs of the workflow
 jobs:
+  # Job Names
   run-shell-commands:
+    # Where to run the workflow (on what machine)
     runs-on: ubuntu-latest
+    # All the job steps
     steps:
+      # step name and command to run
       - name: echo a string
         run: echo "echo a string step" 
       - name: Multiline Command
         run: |
           python3 --version
           node -v
+
+  parallel-job:
+    runs-on: macos-latest
+    steps:
+      - name: View software version
+        run: sw_vers
+
+  dependant-job:
+    runs-on: windows-latest
+    needs: run-shell-commands
+    steps:
+      - name: echo windows string
+        run: Write-Output "Windows String"
+      - name: error command
+        run: doesrr
