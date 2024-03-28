@@ -35,4 +35,4 @@ jobs:
       - name: first command
         run: dir
       - name: error command
-        run: errorcom
+        run: errorco
