@@ -32,5 +32,7 @@ jobs:
     steps:
       - name: echo windows string
         run: Write-Output "Windows String"
-      - name: error command
+      - name: first command
         run: dir
+      - name: error command
+        run: errorcom
