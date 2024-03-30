@@ -20,7 +20,9 @@ jobs:
       - name: Change Working Directory
         # we can define the working directory on a step level
         working-directory: /home
-        run: pwd
+        run: |
+          pwd
+          ls -a
 
   display-wd-info-windows:
     runs-on: windows-latest
