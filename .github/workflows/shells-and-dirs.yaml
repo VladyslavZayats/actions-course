@@ -1,0 +1,11 @@
+name: Shells and Working Directory
+on: [push]
+
+jobs:
+  display-wd-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check current directory and ls
+        run: |
+          pwd
+          ls
