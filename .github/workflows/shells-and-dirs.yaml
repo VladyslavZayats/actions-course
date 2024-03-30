@@ -1,5 +1,9 @@
 name: Shells and Working Directory
 on: [push]
+# we can define default shell for all the jobs; we can override the shell in the specific job
+defaults:
+  run:
+    shell: bash
 
 jobs:
   display-wd-info:
@@ -15,11 +19,15 @@ jobs:
 
   display-wd-info-windows:
     runs-on: windows-latest
+    # override the default bash shell defined on the workflow level
+    defaults:
+      run:
+        shell: pwsh
     steps:
       - name: Check current directory and ls on windows
         run: |
-          pwd
-          ls -a
-          echo $GITHUB_SHA - commit id
-          echo $GITHUB_REPOSITORY - current repository
-          echo $GITHUB_WORKSPACE - current workspace
+          Get-Location
+          dir
+          echo $env:GITHUB_SHA - commit id
+          echo $env:GITHUB_REPOSITORY - current repository
+          echo $env:GITHUB_WORKSPACE - current workspace
