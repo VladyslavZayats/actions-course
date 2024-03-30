@@ -16,3 +16,9 @@ jobs:
         run: echo "::warning title:Warning title, file=test.py, line=2, col=5::Something is wrong!"
       - name: Notice message with parameters
         run: echo "::notice title:Notice title, file=test.py, line=2, col=5::Something is wrong!"
+      - name: Group of messages
+        run: |
+          echo "::group::My group title"
+          echo "group element 1"
+          echo "group element 2"
+          echo "::endgroup::"
