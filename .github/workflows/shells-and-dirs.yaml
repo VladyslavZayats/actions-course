@@ -4,6 +4,7 @@ on: [push]
 defaults:
   run:
     shell: bash
+    # working-directory: /de/ed  - we can set a default working directoey on a workflow level
 
 jobs:
   display-wd-info:
@@ -16,6 +17,10 @@ jobs:
           echo $GITHUB_SHA - commit id
           echo $GITHUB_REPOSITORY - current repository
           echo $GITHUB_WORKSPACE - current workspace
+      - name: Change Working Directory
+        # we can define the working directory on a step level
+        working-directory: /home
+        run: pwd
 
   display-wd-info-windows:
     runs-on: windows-latest
@@ -31,3 +36,9 @@ jobs:
           echo $env:GITHUB_SHA - commit id
           echo $env:GITHUB_REPOSITORY - current repository
           echo $env:GITHUB_WORKSPACE - current workspace
+      - name: Using Python shell
+        # override the default bash shell and overridden pwsh to Python shell on a step level
+        shell: Python
+        run: |
+          import platform
+          print(platform.processor())
