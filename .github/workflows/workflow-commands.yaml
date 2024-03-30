@@ -6,22 +6,26 @@ jobs:
   test-workflow-commands:
     runs-on: ubuntu-latest
     steps:
+        # we can write workflow commands using echo "::<command>::"
       - name: Setting an error message
         run: echo "::error::Something is wrong"
+        # we can write parameters in workflow commands as "::<command> param1, param2::"
       - name: Error message with parameters
-        run: echo "::error title:Error title, file=test.py, line=2, col=5::Something is wrong!"
+        run: echo "::error title=Error title, file=test.py, line=2, col=5::Something is wrong!"
       - name: Debug message with parameters
-        run: echo "::debug title:Debug title, file=test.py, line=2, col=5::Something is wrong!"
+        run: echo "::debug title=Debug title, file=test.py, line=2, col=5::Something is wrong!"
       - name: Warning message with parameters
-        run: echo "::warning title:Warning title, file=test.py, line=2, col=5::Something is wrong!"
+        run: echo "::warning title=Warning title, file=test.py, line=2, col=5::Something is wrong!"
       - name: Notice message with parameters
-        run: echo "::notice title:Notice title, file=test.py, line=2, col=5::Something is wrong!"
+        run: echo "::notice title=Notice title, file=test.py, line=2, col=5::Something is wrong!"
+        # we can group workflow messages using ::group::...::endgroup:: structure 
       - name: Group of messages
         run: |
           echo "::group::My group title"
           echo "group element 1"
           echo "group element 2"
           echo "::endgroup::"
+        # we can mask values using ::add-mask::
       - name: Masking some value
         run: echo "::add-mask::It should be masked"
       - name: Echo the masked value
