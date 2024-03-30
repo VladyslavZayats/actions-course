@@ -22,3 +22,7 @@ jobs:
           echo "group element 1"
           echo "group element 2"
           echo "::endgroup::"
+      - name: Masking some value
+        run: echo "::add-mask::It should be masked"
+      - name: Echo the masked value
+        run: echo "It should be masked"
