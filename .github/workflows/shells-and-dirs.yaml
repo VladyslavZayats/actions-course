@@ -8,4 +8,18 @@ jobs:
       - name: Check current directory and ls
         run: |
           pwd
-          ls
+          ls -a
+          echo $GITHUB_SHA - commit id
+          echo $GITHUB_REPOSITORY - current repository
+          echo $GITHUB_WORKSPACE - current workspace
+
+  display-wd-info-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Check current directory and ls on windows
+        run: |
+          pwd
+          ls -a
+          echo $GITHUB_SHA - commit id
+          echo $GITHUB_REPOSITORY - current repository
+          echo $GITHUB_WORKSPACE - current workspace
