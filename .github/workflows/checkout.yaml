@@ -1,6 +1,7 @@
 name: Checkout
 on: [push]
 
+# we can use the files from our repository in a runner by fetching them from our repo inside the runner 
 jobs:
   checkout-and-display-files:
     runs-on: ubuntu-latest
