@@ -6,9 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Simmple JS action
+        # specify step id to use action's output
         id: greet
+        # use actions from actions repository, specify branch or commit or tag id after '@' 
         uses: actions/hello-world-javascript-action@6b530f0f5c8c0a650eac4810e09bea3404bea713
         with:
           who-to-greet: Jija
       - name: Output of JS action
+        # use output of action with name specified in action documentation
         run: echo "${{ steps.greet.outputs.time }}"
