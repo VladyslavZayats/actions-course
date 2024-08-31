@@ -1,5 +1,12 @@
 name: Events
-on: [push, pull_request, issues]
+# we can specify types of enevts to be triggered on
+on:
+  # empty object when there is no need to specify types
+  push:
+  pull_request: 
+    types: [opened, reopened, assigned]
+  issues:
+    types: opened
 
 jobs:
   checkout-test:
